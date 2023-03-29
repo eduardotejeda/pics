@@ -1,5 +1,26 @@
-function SeachBar() {
-    return <div>SeachBar</div>
+import { useState } from 'react';
+
+function SeachBar( {onSubmit} ) {
+    const [term, setTerm] = useState('');
+
+
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+        onSubmit('cars');
+    }
+    
+    const handleChange = (event) => {
+        setTerm(event.target.value);
+
+    };
+
+
+    return <div>
+        <form onSubmit={handleFormSubmit}>
+        <input value={term} onChange={handleChange} />
+        </form>
+        
+    </div>
 }
 
 export default SeachBar;
